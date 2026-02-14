@@ -1,0 +1,13 @@
+<div class="container">
+    <fieldset class="autocomplete-methods">
+        <legend>Select a method:</legend>
+        @for (method of autoMethods(); track method.value) {
+            <div>
+                <input type="radio" [id]="method.label" name="method" [value]="method.value" [checked]="selectedMethod() === method.value"/>
+                <label [for]="method.label">{{ method.label }}</label>
+            </div>
+        }
+    </fieldset>
+    <app-autocomplete-search label="News" [formField]="autocompleteForm.search" [data]="news.value() || []" key="title" [method]="selectedMethod()"></app-autocomplete-search>
+    <button (click)="logSelection()">Select</button>
+</div>

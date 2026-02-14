@@ -1,0 +1,13 @@
+<div class="autocomplete">
+    <label [for]="label() || 'search'">{{ label() }}</label>
+    <div class="search">
+        <input #searchInput [value]="searchValue()" [id]="label() || 'search'" type="text" (input)="input(searchInput.value)">
+        @if(isVisible()) {
+            <ul>
+                @for (item of filteredData(); track item[key()]) {
+                    <li (click)="select(item)">{{ item[key()] }}</li>
+                }
+            </ul>
+        }
+    </div>
+</div>
