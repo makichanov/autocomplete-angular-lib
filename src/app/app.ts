@@ -31,11 +31,11 @@ export class App {
     },
 
   ]);
-  public readonly news = httpResource<NewsModel[]>(() => 'http://localhost:3000/api/todos');
+  public readonly news = httpResource<NewsModel[]>(() => 'http://localhost:8080/news');
 
   public autocompleteFormModel = signal<{ search: NewsModel | null }>({ search: null });
   public autocompleteForm = form(this.autocompleteFormModel);
-  // todo: fix
+
   logSelection() {
     console.log(this.autocompleteFormModel())
   }
